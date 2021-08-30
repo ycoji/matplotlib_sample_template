@@ -1,0 +1,43 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from __future__ import print_function
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+
+if __name__ == '__main__':
+
+  """
+  This is a test script 
+  """
+
+  fig = plt.figure()
+  plt.rcParams['font.family'] = 'Arial'
+  ax = fig.add_subplot(111, projection='3d')
+  
+  ax.scatter(np.log(Diameter), np.log(Period), 10**(0.4*Amplitude), color='grey', s=1, label='MBAs')
+
+  ax.set_xlabel('(log)Diameter [km]', fontname='Arial', fontsize=13)
+  ax.set_ylabel('(log)Period [hour]', fontname='Arial', fontsize=13)
+  ax.set_zlabel('$10^{0.4{\Delta}m}$', fontname='Arial', fontsize=13)
+
+  xmin, xmax = -3, 4
+  ymin, ymax = 4, -3
+  zmin, zmax = 0.5, 10
+
+  # ax.set_xscale('log')
+  # ax.set_yscale('log')
+  # ax.set_zscale('log')
+
+  ax.set_xlim(xmin, xmax)
+  ax.set_ylim(ymin, ymax)
+  ax.set_zlim(zmin, zmax)
+
+  plt.legend()
+  plt.show()
+
+
+
+

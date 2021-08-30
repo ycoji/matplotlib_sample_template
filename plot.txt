@@ -1,0 +1,38 @@
+#/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from __future__ import print_function
+import numpy as np
+import datetime
+import matplotlib.pyplot as plt 
+from matplotlib import dates as mdates 
+
+if __name__ == '__main__':
+
+  """ 
+  This is a templete script for matplotlib.pyplot.plot
+  """
+
+  # Load to data
+  data = np.loadtxt('test.data', unpack=True, usecolos=(1,2,3))
+
+  fig = plt.figure(figsize=(8.5, 4.8)) # aspect ratio is 16:9
+  plt.rcParams['font.family'] = 'Arial'
+  ax = fig.add_subplot(111)
+
+  ax.plot(data[0], data[1], color='hoge', linewidth=?, label='test')
+  ax.errorbar(data[0], data[2], yerr=magerr, fmt='none', ecolor='blue', elinewidth=0.1, alpha=0.5)
+  ax.hlines(2.2, xmin, xmax, colors='black', linestyle='--', linewidth=0.5, label='Spin barrier')
+
+  ax.scatter(date[3], data[3], facecolors='none', edgecolors='purple', label='hoge')
+
+  ax.set_xlabel('x label name', fontname='Arial', fontsize=13)
+  ax.set_ylabel('y label name ex) $\Delta$ <= TeX format is available', fontname='Arial', fontsize=13)
+  ax.xaxis.set_major_formatter(mdates.DateFormatter("%H:%M")) <= time format
+  plt.legend()
+  plt.grid(True, linestyle='--', linewidth=0.1) # <= grid setting
+  plt.subplots_adjust()
+  plt.savefig('test.pdf') <= output name
+
+
+
